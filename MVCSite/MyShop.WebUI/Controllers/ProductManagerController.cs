@@ -11,10 +11,10 @@ namespace MyShop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        IInMemoryRepository<Product> context;
-        IInMemoryRepository<ProductCategory> productCategories;
+        IRepository<Product> context;
+        IRepository<ProductCategory> productCategories;
 
-        public ProductManagerController(IInMemoryRepository<Product> productContext, IInMemoryRepository<ProductCategory> productCategoriesContext)
+        public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategoriesContext)
         {
             context = productContext;
             productCategories = productCategoriesContext;
@@ -121,7 +121,7 @@ namespace MyShop.WebUI.Controllers
             }
             else
             {
-                context.Delete(productToDelete);
+                context.Delete(Id);
                 context.Commit();
 
                 return RedirectToAction("Index");
