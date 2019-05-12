@@ -1,0 +1,59 @@
+﻿@model MyShop.Core.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<br/>
+<br/>
+
+<div>
+    <div class="col-md-4">
+        <img class="img-responsive" src="~/Content/ProductImages/@Model.Image" />
+    </div>
+
+    <div class="col-md-8">
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                <strong>@Html.DisplayFor(model => model.Name)</strong>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                $@Html.DisplayFor(model => model.Price)
+            </dd>
+            <dt>
+            </dt>
+            <dd>
+                <br />
+                <br /> 
+            </dd>  
+            <dt>
+            </dt>
+            <dd>
+                <a href="#" class="btn btn-success">Add To Cart</a>
+            </dd>           
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to Menu", "Index")
+</p>
+
+<div class="col-md-12 clearfix"></div>
