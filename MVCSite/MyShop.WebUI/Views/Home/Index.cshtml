@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MyShop.Core.Models.Product>
+﻿@model MyShop.Core.ViewModels.ProductListViewModel
 
 @{
     ViewBag.Title = "Home Page";
@@ -6,8 +6,21 @@
 
 <h1>Menu</h1>
 
-@foreach (var item in Model)
-{   
+<div class="col-md-2">
+    <h4>Filter By Category</h4>
+    <div class="list-group">
+        @Html.ActionLink("All", "Index", null, new { @class = (Request["Category"] == null)? "list-group-item active" : "list-group-item" })
+        @foreach (var c in Model.ProductCategories)
+        {
+            @Html.ActionLink(c.Category, "Index", new { Category = c.Category }, new { @class = (Request["Category"] == c.Category) ? "list-group-item active" : "list-group-item" })
+        }
+    </div>
+</div>
+
+<div class="col-md-10">
+
+    @foreach (var item in Model.Products)
+    {
         <div class="col-md-4" style="height:450px;">
             <div class="col-md-12">
                 <img class="img-responsive" style:"height:250px" src="~/Content/ProductImages/@item.Image" />
@@ -25,6 +38,6 @@
                 <a href="#" class="btn btn-success">Add to Cart</a>
             </div>
         </div>
-}
-
+    }
+</div>
 <div class="col-md-12 clearfix"></div>
