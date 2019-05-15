@@ -1,5 +1,4 @@
 ﻿using MyShop.Core.Infrastructure.Abstract;
-using MyShop.DataAccess.InMemory;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

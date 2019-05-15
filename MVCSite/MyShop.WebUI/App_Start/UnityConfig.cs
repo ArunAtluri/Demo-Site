@@ -2,6 +2,7 @@ using MyShop.Core.Models;
 using MyShop.DataAccess.InMemory;
 using MyShop.DataAccess.SQL;
 using System;
+using MyShop.Core.Infrastructure.Abstract;
 
 using Unity;
 
